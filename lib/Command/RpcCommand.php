@@ -31,7 +31,7 @@ class RpcCommand extends Command
     private $replayPath;
 
     /**
-     * @var string
+     * @var resource
      */
     private $inputStream;
 
@@ -58,7 +58,7 @@ class RpcCommand extends Command
 
     public function execute(InputInterface $input, OutputInterface $output)
     {
-        $stdin = $this->resolveInput($input->getOption('replay'));
+        $stdin = $this->resolveInput((bool) $input->getOption('replay'));
         $request = json_decode($stdin, true);
 
         if (null === $request) {
@@ -75,14 +75,14 @@ class RpcCommand extends Command
             $flags = JSON_PRETTY_PRINT;
         }
 
-        $output->write(json_encode([
+        $output->write((string) json_encode([
             'version' => RpcVersion::asString(),
             'action' => $response->name(),
             'parameters' => $response->parameters(),
         ], $flags), false, OutputInterface::OUTPUT_RAW);
     }
 
-    private function processRequest(array $request = null)
+    private function processRequest(array $request)
     {
         $request = Request::fromArray($request);
 
