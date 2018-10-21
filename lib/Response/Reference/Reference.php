@@ -20,7 +20,7 @@ class Reference
     private $lineNumber;
 
     /**
-     * @var int
+     * @var int|null
      */
     private $colNo;
 

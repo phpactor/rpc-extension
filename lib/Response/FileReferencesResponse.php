@@ -47,7 +47,7 @@ class FileReferencesResponse implements Response
         ];
     }
 
-    public function references(): string
+    public function references(): array
     {
         return $this->references;
     }

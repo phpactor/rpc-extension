@@ -15,7 +15,7 @@ class ChoiceInput implements Input
     private $label;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $default;
 
@@ -57,7 +57,7 @@ class ChoiceInput implements Input
         return $this->label;
     }
 
-    public function default(): string
+    public function default(): ?string
     {
         return $this->default;
     }

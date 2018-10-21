@@ -9,7 +9,7 @@ use Phpactor\Extension\Rpc\Response\Input\Input;
 class InputCallbackResponse implements Response
 {
     /**
-     * @var ActionRequest
+     * @var Request
      */
     private $callbackAction;
 

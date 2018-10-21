@@ -15,7 +15,7 @@ class TextInput implements Input
     private $label;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $default;
 
@@ -28,7 +28,7 @@ class TextInput implements Input
     {
         $this->name = $name;
         $this->label = $label;
-        $this->default = $default;
+        $this->default = $default = null;
         $this->type = $type;
     }
 
@@ -52,7 +52,7 @@ class TextInput implements Input
         return $this->label;
     }
 
-    public function default(): string
+    public function default(): ?string
     {
         return $this->default;
     }
