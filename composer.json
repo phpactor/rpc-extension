@@ -1,7 +1,8 @@
 {
     "name": "phpactor/rpc-extension",
-    "description": "RPC extension",
+    "description": "RPC Extension",
     "license": "MIT",
+    "type": "phpactor-extension",
     "authors": [
         {
             "name": "Daniel Leech",
@@ -9,23 +10,28 @@
         }
     ],
     "require": {
+        "phpactor/container": "^1.1",
+        "symfony/console": "^3.0|^4.0",
+        "phpactor/logging-extension": "@dev"
     },
     "require-dev": {
         "phpstan/phpstan": "^0.10.5",
         "phpunit/phpunit": "^7.4",
-        "friendsofphp/php-cs-fixer": "^2.13"
+        "friendsofphp/php-cs-fixer": "^2.13",
+        "phpactor/test-utils": "^1.0"
     },
     "autoload": {
         "psr-4": {
-            "Phpactor\\Extension\\RPC\\": "lib/"
+            "Phpactor\\Extension\\Rpc\\": "lib/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Phpactor\\Extension\\RPC\\Tests\\": "tests/"
+            "Phpactor\\Extension\\Rpc\\Tests\\": "tests/"
         }
     },
     "extra": {
+        "phpactor.extension_class": "Phpactor\\Extension\\Rpc\\RpcExtension",
         "branch-alias": {
             "dev-master": "1.0-dev"
         }
