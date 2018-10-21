@@ -3,18 +3,12 @@
 namespace Phpactor\Extension\Rpc\Tests\Integration\Command;
 
 use PHPUnit\Framework\TestCase;
-use Phpactor\Container\ContainerBuilder;
 use Phpactor\Container\PhpactorContainer;
 use Phpactor\Exension\Logger\LoggingExtension;
 use Phpactor\Extension\Rpc\Command\RpcCommand;
-use Phpactor\Extension\Rpc\HandlerRegistry;
-use Phpactor\Extension\Rpc\Handler\EchoHandler;
-use Phpactor\Extension\Rpc\RequestHandler\RequestHandler;
 use Phpactor\Extension\Rpc\RpcExtension;
 use Phpactor\Extension\Rpc\RpcVersion;
-use Phpactor\MapResolver\Resolver;
 use Phpactor\TestUtils\Workspace;
-use Phpactor\Tests\System\SystemTestCase;
 use Symfony\Component\Console\Tester\CommandTester;
 
 class RpcCommandTest extends TestCase
