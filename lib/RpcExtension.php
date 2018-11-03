@@ -30,7 +30,7 @@ class RpcExtension implements Extension
                 $container->getParameter('rpc.replay_path'),
                 $container->getParameter('rpc.store_replay')
             );
-        }, [ 'console.command' => [] ]);
+        }, [ 'ui.console.command' => [] ]);
 
         $container->register(self::SERVICE_REQUEST_HANDLER, function (Container $container) {
             return new LoggingHandler(

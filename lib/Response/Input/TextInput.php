@@ -28,7 +28,7 @@ class TextInput implements Input
     {
         $this->name = $name;
         $this->label = $label;
-        $this->default = $default = null;
+        $this->default = $default;
         $this->type = $type;
     }
 
