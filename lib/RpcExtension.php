@@ -17,7 +17,7 @@ class RpcExtension implements Extension
 {
     const TAG_RPC_HANDLER = 'rpc.handler';
 
-    private const SERVICE_REQUEST_HANDLER = 'rpc.request_handler';
+    public const SERVICE_REQUEST_HANDLER = 'rpc.request_handler';
 
     /**
      * {@inheritDoc}
