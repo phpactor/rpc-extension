@@ -6,6 +6,7 @@ use PHPUnit\Framework\TestCase;
 use Phpactor\Container\Container;
 use Phpactor\Container\PhpactorContainer;
 use Phpactor\Exension\Logger\LoggingExtension;
+use Phpactor\Extension\Console\ConsoleExtension;
 use Phpactor\Extension\Rpc\Command\RpcCommand;
 use Phpactor\Extension\Rpc\Request;
 use Phpactor\Extension\Rpc\RequestHandler;
@@ -17,8 +18,8 @@ class RpcExtensionTest extends TestCase
     public function testRpcCommand()
     {
         $container = $this->createContainer();
-        $command = $container->get('rpc.command.rpc');
-        $this->assertInstanceOf(RpcCommand::class, $command);
+        $loader = $container->get(ConsoleExtension::SERVICE_COMMAND_LOADER);
+        $this->assertInstanceOf(RpcCommand::class, $loader->get('rpc'));
     }
 
     public function testHandler()
@@ -40,7 +41,8 @@ class RpcExtensionTest extends TestCase
     {
         $container = PhpactorContainer::fromExtensions([
             LoggingExtension::class,
-            RpcExtension::class
+            RpcExtension::class,
+            ConsoleExtension::class,
         ], []);
         return $container;
     }

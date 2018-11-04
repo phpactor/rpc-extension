@@ -6,6 +6,7 @@ use Phpactor\Container\Container;
 use Phpactor\Container\ContainerBuilder;
 use Phpactor\Container\Extension;
 use Phpactor\Exension\Logger\LoggingExtension;
+use Phpactor\Extension\Console\ConsoleExtension;
 use Phpactor\Extension\Rpc\Command\RpcCommand;
 use Phpactor\Extension\Rpc\Handler\EchoHandler;
 use Phpactor\Extension\Rpc\RequestHandler\ExceptionCatchingHandler;
@@ -30,7 +31,7 @@ class RpcExtension implements Extension
                 $container->getParameter('rpc.replay_path'),
                 $container->getParameter('rpc.store_replay')
             );
-        }, [ 'ui.console.command' => [ 'name' => 'rpc' ] ]);
+        }, [ ConsoleExtension::TAG_COMMAND => [ 'name' => 'rpc' ] ]);
 
         $container->register(self::SERVICE_REQUEST_HANDLER, function (Container $container) {
             return new LoggingHandler(
