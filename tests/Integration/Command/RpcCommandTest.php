@@ -4,7 +4,7 @@ namespace Phpactor\Extension\Rpc\Tests\Integration\Command;
 
 use PHPUnit\Framework\TestCase;
 use Phpactor\Container\PhpactorContainer;
-use Phpactor\Exension\Logger\LoggingExtension;
+use Phpactor\Extension\Logger\LoggingExtension;
 use Phpactor\Extension\Rpc\Command\RpcCommand;
 use Phpactor\Extension\Rpc\RpcExtension;
 use Phpactor\Extension\Rpc\RpcVersion;
