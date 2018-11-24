@@ -34,7 +34,7 @@
     "extra": {
         "phpactor.extension_class": "Phpactor\\Extension\\Rpc\\RpcExtension",
         "branch-alias": {
-            "dev-master": "1.0-dev"
+            "dev-master": "0.x-dev"
         }
     }
 }
