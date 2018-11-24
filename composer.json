@@ -12,7 +12,8 @@
     "require": {
         "phpactor/container": "^1.1",
         "phpactor/logging-extension": "~0.2",
-        "phpactor/console-extension": "dev-master"
+        "phpactor/console-extension": "dev-master",
+        "phpactor/file-path-resolver-extension": "~0.1"
     },
     "require-dev": {
         "phpstan/phpstan": "^0.10.5",

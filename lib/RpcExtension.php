@@ -12,6 +12,7 @@ use Phpactor\Extension\Rpc\Handler\EchoHandler;
 use Phpactor\Extension\Rpc\RequestHandler\ExceptionCatchingHandler;
 use Phpactor\Extension\Rpc\RequestHandler\LoggingHandler;
 use Phpactor\Extension\Rpc\RequestHandler\RequestHandler;
+use Phpactor\FilePathResolverExtension\FilePathResolverExtension;
 use Phpactor\MapResolver\Resolver;
 
 class RpcExtension implements Extension
@@ -28,7 +29,7 @@ class RpcExtension implements Extension
         $container->register('rpc.command.rpc', function (Container $container) {
             return new RpcCommand(
                 $container->get('rpc.request_handler'),
-                $container->getParameter('rpc.replay_path'),
+                $container->get(FilePathResolverExtension::SERVICE_FILE_PATH_RESOLVER)->resolve($container->getParameter('rpc.replay_path')),
                 $container->getParameter('rpc.store_replay')
             );
         }, [ ConsoleExtension::TAG_COMMAND => [ 'name' => 'rpc' ] ]);
@@ -68,7 +69,7 @@ class RpcExtension implements Extension
     {
         $schema->setDefaults([
             'rpc.store_replay' => false,
-            'rpc.replay_path' => getcwd() . '/phpactor-replay.json',
+            'rpc.replay_path' => '%cache%/replay.json',
         ]);
     }
 }

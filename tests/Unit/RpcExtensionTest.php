@@ -12,6 +12,7 @@ use Phpactor\Extension\Rpc\Request;
 use Phpactor\Extension\Rpc\RequestHandler;
 use Phpactor\Extension\Rpc\Response;
 use Phpactor\Extension\Rpc\RpcExtension;
+use Phpactor\FilePathResolverExtension\FilePathResolverExtension;
 
 class RpcExtensionTest extends TestCase
 {
@@ -43,6 +44,7 @@ class RpcExtensionTest extends TestCase
             LoggingExtension::class,
             RpcExtension::class,
             ConsoleExtension::class,
+            FilePathResolverExtension::class,
         ], []);
         return $container;
     }
