@@ -1,13 +1,14 @@
 <?php
 
-namespace Phpactor\Extension\Rpc\Tests\Unit;
+namespace Phpactor\Extension\Rpc\Tests\Unit\Registry;
 
 use PHPUnit\Framework\TestCase;
 
 use Phpactor\Extension\Rpc\HandlerRegistry;
 use Phpactor\Extension\Rpc\Handler;
+use Phpactor\Extension\Rpc\Registry\ActiveHandlerRegistry;
 
-class HandlerRegistryTest extends TestCase
+class ActiveHandlerRegistryTest extends TestCase
 {
     public function testExceptionForUnkown()
     {
@@ -15,8 +16,7 @@ class HandlerRegistryTest extends TestCase
         $this->expectExceptionMessage('No handler "aaa"');
 
         $action = $this->prophesize(Handler::class);
-        $action->name()->willReturn('one');
-        $registry = $this->create([ $action->reveal() ]);
+        $registry = $this->create([ 'one' => $action->reveal() ]);
 
         $registry->get('aaa');
     }
@@ -24,14 +24,13 @@ class HandlerRegistryTest extends TestCase
     public function testGetAction()
     {
         $action = $this->prophesize(Handler::class);
-        $action->name()->willReturn('one');
-        $registry = $this->create([ $action->reveal() ]);
+        $registry = $this->create([ 'one' => $action->reveal() ]);
 
         $this->assertSame($action->reveal(), $registry->get('one'));
     }
 
     public function create(array $actions = [])
     {
-        return new HandlerRegistry($actions);
+        return new ActiveHandlerRegistry($actions);
     }
 }

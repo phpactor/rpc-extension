@@ -4,11 +4,14 @@ namespace Phpactor\Extension\Rpc\Test;
 
 use Phpactor\Extension\Rpc\Handler;
 use Phpactor\Extension\Rpc\HandlerRegistry;
+use Phpactor\Extension\Rpc\Registry\ActiveHandlerRegistry;
 use Phpactor\Extension\Rpc\Request;
 use Phpactor\Extension\Rpc\RequestHandler\RequestHandler;
 
 class HandlerTester
 {
+    const HANDLER_NAME = 'example';
+
     /**
      * @var Handler
      */
@@ -19,13 +22,13 @@ class HandlerTester
         $this->handler = $handler;
     }
 
-    public function handle(string $actionName, array $parameters)
+    public function handle(array $parameters)
     {
-        $registry = new HandlerRegistry([
-            $this->handler
+        $registry = new ActiveHandlerRegistry([
+            self::HANDLER_NAME => $this->handler
         ]);
         $requestHandler = new RequestHandler($registry);
-        $request = Request::fromNameAndParameters($actionName, $parameters);
+        $request = Request::fromNameAndParameters(self::HANDLER_NAME, $parameters);
 
         return $requestHandler->handle($request);
     }

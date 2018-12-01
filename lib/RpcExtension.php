@@ -9,11 +9,13 @@ use Phpactor\Extension\Logger\LoggingExtension;
 use Phpactor\Extension\Console\ConsoleExtension;
 use Phpactor\Extension\Rpc\Command\RpcCommand;
 use Phpactor\Extension\Rpc\Handler\EchoHandler;
+use Phpactor\Extension\Rpc\Registry\ActiveHandlerRegistry;
 use Phpactor\Extension\Rpc\RequestHandler\ExceptionCatchingHandler;
 use Phpactor\Extension\Rpc\RequestHandler\LoggingHandler;
 use Phpactor\Extension\Rpc\RequestHandler\RequestHandler;
 use Phpactor\FilePathResolverExtension\FilePathResolverExtension;
 use Phpactor\MapResolver\Resolver;
+use RuntimeException;
 
 class RpcExtension implements Extension
 {
@@ -45,11 +47,18 @@ class RpcExtension implements Extension
 
         $container->register('rpc.handler_registry', function (Container $container) {
             $handlers = [];
-            foreach (array_keys($container->getServiceIdsForTag(self::TAG_RPC_HANDLER)) as $serviceId) {
-                $handlers[] = $container->get($serviceId);
+            foreach ($container->getServiceIdsForTag(self::TAG_RPC_HANDLER) as $serviceId => $attrs) {
+                if (!isset($attrs['name'])) {
+                    throw new RuntimeException(sprintf(
+                        'Handler "%s" must be provided with a "name" attribute when it is registered',
+                        $serviceId
+                    ));
+                }
+
+                $handlers[$attrs['name']] = $container->get($serviceId);
             }
 
-            return new HandlerRegistry($handlers);
+            return new ActiveHandlerRegistry($handlers);
         });
 
         $this->registerHandlers($container);
@@ -59,7 +68,7 @@ class RpcExtension implements Extension
     {
         $container->register('rpc.handler.echo', function (Container $container) {
             return new EchoHandler();
-        }, [ self::TAG_RPC_HANDLER => [] ]);
+        }, [ self::TAG_RPC_HANDLER => [ 'name' => 'echo' ] ]);
     }
 
     /**

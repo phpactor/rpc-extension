@@ -44,7 +44,6 @@ class RequestHandlerTest extends TestCase
         $expectedResponse = $this->prophesize(Response::class);
 
         $this->handlerRegistry->get('aaa')->willReturn($this->handler->reveal());
-        $this->handler->name()->willReturn('handler1');
         $this->handler->configure(Argument::type(Resolver::class))->will(function ($args) {
             $args[0]->setDefaults([
                 'one' => null,

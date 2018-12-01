@@ -29,7 +29,6 @@ class HandlerTesterTest extends TestCase
 
     public function testTester()
     {
-        $this->handler->name()->willReturn('foobar');
         $this->handler->configure(Argument::any())->will(function (array $args) {
             $args[0]->setRequired(['foo']);
         });
@@ -37,7 +36,7 @@ class HandlerTesterTest extends TestCase
 
         $tester = new HandlerTester($this->handler->reveal());
 
-        $response = $tester->handle('foobar', [ 'foo' => 'bar' ]);
+        $response = $tester->handle([ 'foo' => 'bar' ]);
         $this->assertSame($this->response->reveal(), $response);
     }
 }
