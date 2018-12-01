@@ -5,7 +5,6 @@ namespace Phpactor\Extension\Rpc\Tests\Unit\Registry;
 use PHPUnit\Framework\TestCase;
 
 use Phpactor\Extension\Rpc\Exception\HandlerNotFound;
-use Phpactor\Extension\Rpc\Handler;
 use Phpactor\Extension\Rpc\Handler\EchoHandler;
 use Phpactor\Extension\Rpc\Registry\ActiveHandlerRegistry;
 

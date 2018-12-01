@@ -9,7 +9,6 @@ use Phpactor\Extension\Logger\LoggingExtension;
 use Phpactor\Extension\Console\ConsoleExtension;
 use Phpactor\Extension\Rpc\Command\RpcCommand;
 use Phpactor\Extension\Rpc\Handler\EchoHandler;
-use Phpactor\Extension\Rpc\Registry\ActiveHandlerRegistry;
 use Phpactor\Extension\Rpc\Registry\LazyContainerHandlerRegistry;
 use Phpactor\Extension\Rpc\RequestHandler\ExceptionCatchingHandler;
 use Phpactor\Extension\Rpc\RequestHandler\LoggingHandler;

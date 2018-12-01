@@ -3,12 +3,9 @@
 namespace Phpactor\Extension\Rpc\Tests\Unit\Test;
 
 use PHPUnit\Framework\TestCase;
-use Phpactor\Extension\Rpc\Handler;
 use Phpactor\Extension\Rpc\Handler\EchoHandler;
-use Phpactor\Extension\Rpc\Response;
 use Phpactor\Extension\Rpc\Response\EchoResponse;
 use Phpactor\Extension\Rpc\Test\HandlerTester;
-use Prophecy\Argument;
 use Prophecy\Prophecy\ObjectProphecy;
 
 class HandlerTesterTest extends TestCase

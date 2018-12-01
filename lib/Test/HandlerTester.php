@@ -3,7 +3,6 @@
 namespace Phpactor\Extension\Rpc\Test;
 
 use Phpactor\Extension\Rpc\Handler;
-use Phpactor\Extension\Rpc\HandlerRegistry;
 use Phpactor\Extension\Rpc\Registry\ActiveHandlerRegistry;
 use Phpactor\Extension\Rpc\Request;
 use Phpactor\Extension\Rpc\RequestHandler\RequestHandler;
