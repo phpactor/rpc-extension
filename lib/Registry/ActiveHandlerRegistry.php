@@ -11,8 +11,8 @@ class ActiveHandlerRegistry implements HandlerRegistry
 
     public function __construct(array $handlers)
     {
-        foreach ($handlers as $handlerName => $handler) {
-            $this->register($handlerName, $handler);
+        foreach ($handlers as $handler) {
+            $this->register($handler);
         }
     }
 
@@ -29,8 +29,9 @@ class ActiveHandlerRegistry implements HandlerRegistry
         return $this->handlers[$handlerName];
     }
 
-    private function register(string $handlerName, Handler $handler)
-    {
-        $this->handlers[$handlerName] = $handler;
+    private function register(Handler $handler)
+    { 
+        $name = call_user_func(get_class($handler) .'::name');
+        $this->handlers[$name] = $handler;
     }
 }

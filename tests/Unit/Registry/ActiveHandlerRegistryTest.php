@@ -4,8 +4,8 @@ namespace Phpactor\Extension\Rpc\Tests\Unit\Registry;
 
 use PHPUnit\Framework\TestCase;
 
-use Phpactor\Extension\Rpc\HandlerRegistry;
 use Phpactor\Extension\Rpc\Handler;
+use Phpactor\Extension\Rpc\Handler\EchoHandler;
 use Phpactor\Extension\Rpc\Registry\ActiveHandlerRegistry;
 
 class ActiveHandlerRegistryTest extends TestCase
@@ -15,18 +15,18 @@ class ActiveHandlerRegistryTest extends TestCase
         $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage('No handler "aaa"');
 
-        $action = $this->prophesize(Handler::class);
-        $registry = $this->create([ 'one' => $action->reveal() ]);
+        $action = new EchoHandler();
+        $registry = $this->create([ $action ]);
 
         $registry->get('aaa');
     }
 
     public function testGetAction()
     {
-        $action = $this->prophesize(Handler::class);
-        $registry = $this->create([ 'one' => $action->reveal() ]);
+        $action = new EchoHandler();
+        $registry = $this->create([ $action ]);
 
-        $this->assertSame($action->reveal(), $registry->get('one'));
+        $this->assertSame($action, $registry->get('echo'));
     }
 
     public function create(array $actions = [])

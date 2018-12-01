@@ -10,8 +10,6 @@ use Phpactor\Extension\Rpc\RequestHandler\RequestHandler;
 
 class HandlerTester
 {
-    const HANDLER_NAME = 'example';
-
     /**
      * @var Handler
      */
@@ -22,13 +20,13 @@ class HandlerTester
         $this->handler = $handler;
     }
 
-    public function handle(array $parameters)
+    public function handle(string $actionName, array $parameters)
     {
         $registry = new ActiveHandlerRegistry([
-            self::HANDLER_NAME => $this->handler
+            $this->handler
         ]);
         $requestHandler = new RequestHandler($registry);
-        $request = Request::fromNameAndParameters(self::HANDLER_NAME, $parameters);
+        $request = Request::fromNameAndParameters($actionName, $parameters);
 
         return $requestHandler->handle($request);
     }

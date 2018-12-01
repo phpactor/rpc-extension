@@ -4,7 +4,9 @@ namespace Phpactor\Extension\Rpc\Tests\Unit\Test;
 
 use PHPUnit\Framework\TestCase;
 use Phpactor\Extension\Rpc\Handler;
+use Phpactor\Extension\Rpc\Handler\EchoHandler;
 use Phpactor\Extension\Rpc\Response;
+use Phpactor\Extension\Rpc\Response\EchoResponse;
 use Phpactor\Extension\Rpc\Test\HandlerTester;
 use Prophecy\Argument;
 use Prophecy\Prophecy\ObjectProphecy;
@@ -23,20 +25,15 @@ class HandlerTesterTest extends TestCase
 
     public function setUp()
     {
-        $this->handler = $this->prophesize(Handler::class);
-        $this->response = $this->prophesize(Response::class);
+        $this->handler = new EchoHandler();
     }
 
     public function testTester()
     {
-        $this->handler->configure(Argument::any())->will(function (array $args) {
-            $args[0]->setRequired(['foo']);
-        });
-        $this->handler->handle(['foo' => 'bar'])->willReturn($this->response);
+        $tester = new HandlerTester($this->handler);
 
-        $tester = new HandlerTester($this->handler->reveal());
-
-        $response = $tester->handle([ 'foo' => 'bar' ]);
-        $this->assertSame($this->response->reveal(), $response);
+        $response = $tester->handle('echo', [ 'message' => 'bar' ]);
+        $this->assertInstanceOf(EchoResponse::class, $response);
+        $this->assertEquals('bar', $response->message());
     }
 }
