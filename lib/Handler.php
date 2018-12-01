@@ -10,5 +10,5 @@ interface Handler
 
     public function handle(array $arguments);
 
-    public static function name(): string;
+    public function name(): string;
 }

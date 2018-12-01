@@ -8,7 +8,7 @@ use Phpactor\Extension\Rpc\Response\EchoResponse;
 
 class EchoHandler implements Handler
 {
-    public static function name(): string
+    public function name(): string
     {
         return 'echo';
     }

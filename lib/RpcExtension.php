@@ -10,6 +10,7 @@ use Phpactor\Extension\Console\ConsoleExtension;
 use Phpactor\Extension\Rpc\Command\RpcCommand;
 use Phpactor\Extension\Rpc\Handler\EchoHandler;
 use Phpactor\Extension\Rpc\Registry\ActiveHandlerRegistry;
+use Phpactor\Extension\Rpc\Registry\LazyContainerHandlerRegistry;
 use Phpactor\Extension\Rpc\RequestHandler\ExceptionCatchingHandler;
 use Phpactor\Extension\Rpc\RequestHandler\LoggingHandler;
 use Phpactor\Extension\Rpc\RequestHandler\RequestHandler;
@@ -50,15 +51,16 @@ class RpcExtension implements Extension
             foreach ($container->getServiceIdsForTag(self::TAG_RPC_HANDLER) as $serviceId => $attrs) {
                 if (!isset($attrs['name'])) {
                     throw new RuntimeException(sprintf(
-                        'Handler "%s" must be provided with a "name" attribute when it is registered',
+                        'Handler "%s" must be provided with a "name" ' .
+                        'attribute when it is registered',
                         $serviceId
                     ));
                 }
 
-                $handlers[$attrs['name']] = $container->get($serviceId);
+                $handlers[$attrs['name']] = $serviceId;
             }
 
-            return new ActiveHandlerRegistry($handlers);
+            return new LazyContainerHandlerRegistry($container, $handlers);
         });
 
         $this->registerHandlers($container);

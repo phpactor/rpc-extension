@@ -4,6 +4,7 @@ namespace Phpactor\Extension\Rpc\Tests\Unit\Registry;
 
 use PHPUnit\Framework\TestCase;
 
+use Phpactor\Extension\Rpc\Exception\HandlerNotFound;
 use Phpactor\Extension\Rpc\Handler;
 use Phpactor\Extension\Rpc\Handler\EchoHandler;
 use Phpactor\Extension\Rpc\Registry\ActiveHandlerRegistry;
@@ -12,7 +13,7 @@ class ActiveHandlerRegistryTest extends TestCase
 {
     public function testExceptionForUnkown()
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(HandlerNotFound::class);
         $this->expectExceptionMessage('No handler "aaa"');
 
         $action = new EchoHandler();
