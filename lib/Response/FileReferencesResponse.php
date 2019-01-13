@@ -25,7 +25,7 @@ class FileReferencesResponse implements Response
             $references[] = FileReferences::fromPathAndReferences(
                 $fileAndReferences['file'],
                 array_map(function (array $reference) {
-                    return Reference::fromStartEndLineNumberAndCol($reference['start'], $reference['end'], $reference['line_no'], $reference['col_no']);
+                    return Reference::fromStartEndLineNumberLineAndCol($reference['start'], $reference['end'], $reference['line_no'], $reference['line'], $reference['col_no']);
                 }, $fileAndReferences['references'])
             );
         }
