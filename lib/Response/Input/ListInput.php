@@ -11,11 +11,12 @@ class ListInput extends ChoiceInput
         return 'list';
     }
 
-    public function setAllowMultipleResults(bool $allowMultipleResults): self
+    public function withMultiple(bool $allowMultipleResults): self
     {
-        $this->allowMultipleResults = $allowMultipleResults;
+        $new = clone $this;
+        $new->allowMultipleResults = $allowMultipleResults;
 
-        return $this;
+        return $new;
     }
 
     public function parameters(): array
