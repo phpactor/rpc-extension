@@ -13,7 +13,7 @@ class FileReferencesResponse implements Response
      */
     private $references;
 
-    private function __construct(array $references)
+    public function __construct(array $references)
     {
         $this->references = $references;
     }
