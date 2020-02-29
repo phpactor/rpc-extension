@@ -24,22 +24,38 @@ class ChoiceInput implements Input
      */
     private $choices;
 
-    private function __construct(string $name, string $label, array $choices, string $default = null)
-    {
+    /**
+     * @var array
+     */
+    private $keyMap;
+
+    private function __construct(
+        string $name,
+        string $label,
+        array $choices,
+        ?string $default = null,
+        array $keyMap = []
+    ) {
         $this->name = $name;
         $this->label = $label;
         $this->default = $default;
         $this->choices = $choices;
+        $this->keyMap = $keyMap;
     }
 
-    public static function fromNameLabelChoicesAndDefault(string $name, string $label, array $choices, string $default = null)
+    public static function fromNameLabelChoicesAndDefault(string $name, string $label, array $choices, string $default = null): self
     {
         return new static($name, $label, $choices, $default);
     }
 
-    public static function fromNameLabelChoices(string $name, string $label, array $choices)
+    public static function fromNameLabelChoices(string $name, string $label, array $choices): self
     {
         return new static($name, $label, $choices);
+    }
+
+    public function withKeys(array $keyMap): self
+    {
+        return new self($this->name, $this->label, $this->choices, $this->default, $keyMap);
     }
 
     public function type(): string
@@ -73,6 +89,7 @@ class ChoiceInput implements Input
             'default' => $this->default,
             'label' => $this->label,
             'choices' => $this->choices,
+            'keyMap' => $this->keyMap,
         ];
     }
 }
