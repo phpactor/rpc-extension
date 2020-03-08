@@ -77,6 +77,8 @@ class RpcCommand extends Command
             'action' => $response->name(),
             'parameters' => $response->parameters(),
         ], $flags), false, OutputInterface::OUTPUT_RAW);
+
+        return 0;
     }
 
     private function processRequest(array $request)
