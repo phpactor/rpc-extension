@@ -20,7 +20,7 @@ class HandlerTesterTest extends TestCase
      */
     private $response;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->handler = new EchoHandler();
     }

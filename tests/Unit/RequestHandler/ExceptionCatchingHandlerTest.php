@@ -32,7 +32,7 @@ class ExceptionCatchingHandlerTest extends TestCase
      */
     private $request;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->innerHandler = $this->prophesize(RequestHandler::class);
         $this->exceptionHandler = new ExceptionCatchingHandler($this->innerHandler->reveal());

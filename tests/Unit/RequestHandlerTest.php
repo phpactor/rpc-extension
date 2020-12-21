@@ -29,7 +29,7 @@ class RequestHandlerTest extends TestCase
      */
     private $requestHandler;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->handlerRegistry = $this->prophesize(HandlerRegistry::class);
         $this->handler = $this->prophesize(Handler::class);
