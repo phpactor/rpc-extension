@@ -1,8 +1,8 @@
 {
     "name": "phpactor/rpc-extension",
+    "type": "phpactor-extension",
     "description": "RPC Extension",
     "license": "MIT",
-    "type": "phpactor-extension",
     "authors": [
         {
             "name": "Daniel Leech",
@@ -10,16 +10,23 @@
         }
     ],
     "require": {
-        "phpactor/container": "^1.1",
-        "phpactor/logging-extension": "~0.2",
         "phpactor/console-extension": "~0.1",
-        "phpactor/file-path-resolver-extension": "~0.1"
+        "phpactor/container": "^1.1",
+        "phpactor/file-path-resolver-extension": "~0.1",
+        "phpactor/logging-extension": "~0.2"
     },
     "require-dev": {
+        "ergebnis/composer-normalize": "^2.0",
+        "friendsofphp/php-cs-fixer": "^2.17",
+        "phpactor/test-utils": "^1.0",
         "phpstan/phpstan": "~0.12.0",
-        "phpunit/phpunit": "~7.0",
-        "friendsofphp/php-cs-fixer": "~2.15.0",
-        "phpactor/test-utils": "^1.0"
+        "phpunit/phpunit": "~7.0"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.2.x-dev"
+        },
+        "phpactor.extension_class": "Phpactor\\Extension\\Rpc\\RpcExtension"
     },
     "autoload": {
         "psr-4": {
@@ -31,12 +38,8 @@
             "Phpactor\\Extension\\Rpc\\Tests\\": "tests/"
         }
     },
-    "extra": {
-        "phpactor.extension_class": "Phpactor\\Extension\\Rpc\\RpcExtension",
-        "branch-alias": {
-            "dev-master": "0.2.x-dev"
-        }
-    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "scripts": {
         "integrate": [
             "vendor/bin/phpunit",
