@@ -23,8 +23,8 @@ class ErrorResponseTest extends TestCase
         $response = ErrorResponse::fromException($exception3);
 
         $this->assertEquals('Three', $response->message());
-        $this->assertContains('One', $response->details());
-        $this->assertContains('Two', $response->details());
-        $this->assertContains('Three', $response->details());
+        $this->assertStringContainsString('One', $response->details());
+        $this->assertStringContainsString('Two', $response->details());
+        $this->assertStringContainsString('Three', $response->details());
     }
 }

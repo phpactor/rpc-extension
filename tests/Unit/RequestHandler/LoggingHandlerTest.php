@@ -40,7 +40,7 @@ class LoggingHandlerTest extends TestCase
      */
     private $logger;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->logger = $this->prophesize(LoggerInterface::class);
         $this->innerHandler = $this->prophesize(RequestHandler::class);
