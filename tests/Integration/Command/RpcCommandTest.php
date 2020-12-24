@@ -18,7 +18,7 @@ class RpcCommandTest extends TestCase
      */
     private $workspace;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->workspace = Workspace::create(__DIR__ . '/../../Workspace');
         $this->workspace->reset();
