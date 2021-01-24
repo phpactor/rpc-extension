@@ -53,7 +53,7 @@ class ReturnChoiceResponse implements Response
         return $this->options;
     }
 
-    private function add(ReturnOption $option)
+    private function add(ReturnOption $option): void
     {
         $this->options[] = $option;
     }

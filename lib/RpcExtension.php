@@ -26,7 +26,7 @@ class RpcExtension implements Extension
     /**
      * {@inheritDoc}
      */
-    public function load(ContainerBuilder $container)
+    public function load(ContainerBuilder $container): void
     {
         $container->register('rpc.command.rpc', function (Container $container) {
             return new RpcCommand(
@@ -65,21 +65,21 @@ class RpcExtension implements Extension
         $this->registerHandlers($container);
     }
 
-    private function registerHandlers(ContainerBuilder $container)
-    {
-        $container->register('rpc.handler.echo', function (Container $container) {
-            return new EchoHandler();
-        }, [ self::TAG_RPC_HANDLER => [ 'name' => 'echo' ] ]);
-    }
-
     /**
      * {@inheritDoc}
      */
-    public function configure(Resolver $schema)
+    public function configure(Resolver $schema): void
     {
         $schema->setDefaults([
             'rpc.store_replay' => false,
             'rpc.replay_path' => '%cache%/replay.json',
         ]);
+    }
+
+    private function registerHandlers(ContainerBuilder $container): void
+    {
+        $container->register('rpc.handler.echo', function (Container $container) {
+            return new EchoHandler();
+        }, [ self::TAG_RPC_HANDLER => [ 'name' => 'echo' ] ]);
     }
 }

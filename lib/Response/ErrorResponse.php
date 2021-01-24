@@ -3,6 +3,7 @@
 namespace Phpactor\Extension\Rpc\Response;
 
 use Phpactor\Extension\Rpc\Response;
+use Exception;
 
 class ErrorResponse implements Response
 {
@@ -27,7 +28,7 @@ class ErrorResponse implements Response
         return new self($message, $details);
     }
 
-    public static function fromException(\Exception $exception): ErrorResponse
+    public static function fromException(Exception $exception): ErrorResponse
     {
         return new self($exception->getMessage(), self::exceptionDetails($exception));
     }
@@ -55,7 +56,7 @@ class ErrorResponse implements Response
         return $this->details;
     }
 
-    private static function exceptionDetails(\Exception $exception): string
+    private static function exceptionDetails(Exception $exception): string
     {
         $exceptions = [ $exception ];
 

@@ -8,14 +8,14 @@ use InvalidArgumentException;
 
 class RequestTest extends TestCase
 {
-    public function testCanBeCreatedFromArrayAndThrowsExceptionIfParametersAreMissing()
+    public function testCanBeCreatedFromArrayAndThrowsExceptionIfParametersAreMissing(): void
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Missing "action" key');
         Request::fromArray([]);
     }
 
-    public function testCanBeCreatedFromArrayParametersAreOptional()
+    public function testCanBeCreatedFromArrayParametersAreOptional(): void
     {
         $request = Request::fromArray([
             'action' => 'foobar',
@@ -28,7 +28,7 @@ class RequestTest extends TestCase
         ], $result);
     }
 
-    public function testThrowsExceptionIfInvalidKeysGiven()
+    public function testThrowsExceptionIfInvalidKeysGiven(): void
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid request keys "foobar"');

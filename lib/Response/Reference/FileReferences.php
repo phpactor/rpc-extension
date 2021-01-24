@@ -38,7 +38,7 @@ class FileReferences
         ];
     }
 
-    private function addReference(Reference $reference)
+    private function addReference(Reference $reference): void
     {
         $this->references[] = $reference;
     }

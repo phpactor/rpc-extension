@@ -25,7 +25,7 @@ class HandlerTesterTest extends TestCase
         $this->handler = new EchoHandler();
     }
 
-    public function testTester()
+    public function testTester(): void
     {
         $tester = new HandlerTester($this->handler);
 

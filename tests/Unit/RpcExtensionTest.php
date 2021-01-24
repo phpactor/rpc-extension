@@ -16,14 +16,14 @@ use Phpactor\FilePathResolverExtension\FilePathResolverExtension;
 
 class RpcExtensionTest extends TestCase
 {
-    public function testRpcCommand()
+    public function testRpcCommand(): void
     {
         $container = $this->createContainer();
         $loader = $container->get(ConsoleExtension::SERVICE_COMMAND_LOADER);
         $this->assertInstanceOf(RpcCommand::class, $loader->get('rpc'));
     }
 
-    public function testHandler()
+    public function testHandler(): void
     {
         $container = $this->createContainer();
         $handler = $this->getHandler($container);

@@ -39,12 +39,12 @@ class RequestHandlerTest extends TestCase
         );
     }
 
-    public function testHandle()
+    public function testHandle(): void
     {
         $expectedResponse = $this->prophesize(Response::class);
 
         $this->handlerRegistry->get('aaa')->willReturn($this->handler->reveal());
-        $this->handler->configure(Argument::type(Resolver::class))->will(function ($args) {
+        $this->handler->configure(Argument::type(Resolver::class))->will(function ($args): void {
             $args[0]->setDefaults([
                 'one' => null,
             ]);

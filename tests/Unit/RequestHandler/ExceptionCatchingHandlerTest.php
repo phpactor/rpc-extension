@@ -9,6 +9,7 @@ use Phpactor\Extension\Rpc\Request;
 use Phpactor\Extension\Rpc\Response;
 use Prophecy\Prophecy\ObjectProphecy;
 use Phpactor\Extension\Rpc\Response\ErrorResponse;
+use Exception;
 
 class ExceptionCatchingHandlerTest extends TestCase
 {
@@ -40,7 +41,7 @@ class ExceptionCatchingHandlerTest extends TestCase
         $this->response = $this->prophesize(Response::class);
     }
 
-    public function testDelegate()
+    public function testDelegate(): void
     {
         $this->innerHandler->handle($this->request->reveal())->willReturn($this->response->reveal());
 
@@ -52,11 +53,11 @@ class ExceptionCatchingHandlerTest extends TestCase
         );
     }
 
-    public function testCatchExceptions()
+    public function testCatchExceptions(): void
     {
         $this->innerHandler->handle(
             $this->request->reveal()
-        )->willThrow(new \Exception('Test!'));
+        )->willThrow(new Exception('Test!'));
 
         $response = $this->exceptionHandler->handle($this->request->reveal());
 

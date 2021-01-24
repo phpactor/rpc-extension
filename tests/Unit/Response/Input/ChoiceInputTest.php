@@ -7,7 +7,7 @@ use Phpactor\Extension\Rpc\Response\Input\ChoiceInput;
 
 class ChoiceInputTest extends TestCase
 {
-    public function testCreateWithShortcut()
+    public function testCreateWithShortcut(): void
     {
         $choice = ChoiceInput::fromNameLabelChoices('foo', 'foobar', [
             'one',
