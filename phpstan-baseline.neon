@@ -6,11 +6,6 @@ parameters:
 			path: lib/Command/RpcCommand.php
 
 		-
-			message: "#^Method Phpactor\\\\Extension\\\\Rpc\\\\Command\\\\RpcCommand\\:\\:configure\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: lib/Command/RpcCommand.php
-
-		-
 			message: "#^Method Phpactor\\\\Extension\\\\Rpc\\\\Command\\\\RpcCommand\\:\\:processRequest\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: lib/Command/RpcCommand.php
@@ -22,11 +17,6 @@ parameters:
 
 		-
 			message: "#^Method Phpactor\\\\Extension\\\\Rpc\\\\Command\\\\RpcCommand\\:\\:lastRequest\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: lib/Command/RpcCommand.php
-
-		-
-			message: "#^Method Phpactor\\\\Extension\\\\Rpc\\\\Command\\\\RpcCommand\\:\\:storeReplay\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: lib/Command/RpcCommand.php
 
@@ -52,11 +42,6 @@ parameters:
 
 		-
 			message: "#^Property Phpactor\\\\Extension\\\\Rpc\\\\Handler\\\\AbstractHandler\\:\\:\\$requiredArguments has no typehint specified\\.$#"
-			count: 1
-			path: lib/Handler/AbstractHandler.php
-
-		-
-			message: "#^Method Phpactor\\\\Extension\\\\Rpc\\\\Handler\\\\AbstractHandler\\:\\:requireInput\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: lib/Handler/AbstractHandler.php
 
@@ -101,11 +86,6 @@ parameters:
 			path: lib/Handler/AbstractHandler.php
 
 		-
-			message: "#^Method Phpactor\\\\Extension\\\\Rpc\\\\Handler\\\\EchoHandler\\:\\:configure\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: lib/Handler/EchoHandler.php
-
-		-
 			message: "#^Method Phpactor\\\\Extension\\\\Rpc\\\\Handler\\\\EchoHandler\\:\\:handle\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: lib/Handler/EchoHandler.php
@@ -132,11 +112,6 @@ parameters:
 
 		-
 			message: "#^Method Phpactor\\\\Extension\\\\Rpc\\\\Registry\\\\ActiveHandlerRegistry\\:\\:get\\(\\) has parameter \\$handlerName with no typehint specified\\.$#"
-			count: 1
-			path: lib/Registry/ActiveHandlerRegistry.php
-
-		-
-			message: "#^Method Phpactor\\\\Extension\\\\Rpc\\\\Registry\\\\ActiveHandlerRegistry\\:\\:register\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: lib/Registry/ActiveHandlerRegistry.php
 
@@ -227,11 +202,6 @@ parameters:
 
 		-
 			message: "#^Method Phpactor\\\\Extension\\\\Rpc\\\\Response\\\\CollectionResponse\\:\\:actions\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: lib/Response/CollectionResponse.php
-
-		-
-			message: "#^Method Phpactor\\\\Extension\\\\Rpc\\\\Response\\\\CollectionResponse\\:\\:add\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: lib/Response/CollectionResponse.php
 
@@ -411,11 +381,6 @@ parameters:
 			path: lib/Response/InputCallbackResponse.php
 
 		-
-			message: "#^Method Phpactor\\\\Extension\\\\Rpc\\\\Response\\\\InputCallbackResponse\\:\\:add\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: lib/Response/InputCallbackResponse.php
-
-		-
 			message: "#^Method Phpactor\\\\Extension\\\\Rpc\\\\Response\\\\OpenFileResponse\\:\\:fromPathAndOffset\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: lib/Response/OpenFileResponse.php
@@ -452,11 +417,6 @@ parameters:
 
 		-
 			message: "#^Method Phpactor\\\\Extension\\\\Rpc\\\\Response\\\\Reference\\\\FileReferences\\:\\:toArray\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: lib/Response/Reference/FileReferences.php
-
-		-
-			message: "#^Method Phpactor\\\\Extension\\\\Rpc\\\\Response\\\\Reference\\\\FileReferences\\:\\:addReference\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: lib/Response/Reference/FileReferences.php
 
@@ -511,11 +471,6 @@ parameters:
 			path: lib/Response/ReturnChoiceResponse.php
 
 		-
-			message: "#^Method Phpactor\\\\Extension\\\\Rpc\\\\Response\\\\ReturnChoiceResponse\\:\\:add\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: lib/Response/ReturnChoiceResponse.php
-
-		-
 			message: "#^Method Phpactor\\\\Extension\\\\Rpc\\\\Response\\\\ReturnOption\\:\\:__construct\\(\\) has parameter \\$value with no typehint specified\\.$#"
 			count: 1
 			path: lib/Response/ReturnOption.php
@@ -564,11 +519,6 @@ parameters:
 			message: "#^Method Phpactor\\\\Extension\\\\Rpc\\\\Response\\\\UpdateFileSourceResponse\\:\\:parameters\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: lib/Response/UpdateFileSourceResponse.php
-
-		-
-			message: "#^Method Phpactor\\\\Extension\\\\Rpc\\\\RpcExtension\\:\\:registerHandlers\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: lib/RpcExtension.php
 
 		-
 			message: "#^Method Phpactor\\\\Extension\\\\Rpc\\\\RpcVersion\\:\\:asString\\(\\) has no return typehint specified\\.$#"

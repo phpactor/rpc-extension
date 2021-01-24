@@ -6,12 +6,13 @@ use Phpactor\Extension\Rpc\Handler;
 use Phpactor\Extension\Rpc\Response\Input\Input;
 use Phpactor\Extension\Rpc\Response\InputCallbackResponse;
 use Phpactor\Extension\Rpc\Request;
+use InvalidArgumentException;
 
 abstract class AbstractHandler implements Handler
 {
     private $requiredArguments = [];
 
-    protected function requireInput(Input $input)
+    protected function requireInput(Input $input): void
     {
         $this->requiredArguments[$input->name()] = $input;
     }
@@ -52,7 +53,7 @@ abstract class AbstractHandler implements Handler
         $inputs = [];
         foreach ($this->missingArguments($arguments) as $argumentName) {
             if (false === isset($this->requiredArguments[$argumentName])) {
-                throw new \InvalidArgumentException(sprintf(
+                throw new InvalidArgumentException(sprintf(
                     'Parameter "%s" is not set and no interactive input was made available for it',
                     $argumentName
                 ));

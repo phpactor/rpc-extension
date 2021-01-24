@@ -10,6 +10,7 @@ use Phpactor\Extension\Rpc\RequestHandler;
 use Phpactor\Extension\Rpc\Request;
 use Symfony\Component\Console\Input\InputOption;
 use RuntimeException;
+use InvalidArgumentException;
 
 class RpcCommand extends Command
 {
@@ -46,7 +47,7 @@ class RpcCommand extends Command
         $this->inputStream = $inputStream;
     }
 
-    public function configure()
+    public function configure(): void
     {
         $this->setDescription('Execute one or many actions from stdin and receive an imperative response');
         $this->addOption('replay', null, InputOption::VALUE_NONE, 'Replay the last request');
@@ -59,7 +60,7 @@ class RpcCommand extends Command
         $request = json_decode($stdin, true);
 
         if (null === $request) {
-            throw new \InvalidArgumentException(sprintf(
+            throw new InvalidArgumentException(sprintf(
                 'Could not decode JSON: %s',
                 $stdin
             ));
@@ -130,7 +131,7 @@ class RpcCommand extends Command
         return file_get_contents($path);
     }
 
-    private function storeReplay(string $in)
+    private function storeReplay(string $in): void
     {
         $path = $this->replayPath;
 

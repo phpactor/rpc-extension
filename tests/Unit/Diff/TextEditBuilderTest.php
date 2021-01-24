@@ -10,7 +10,7 @@ class TextEditBuilderTest extends TestCase
     /**
      * @dataProvider provideDiff
      */
-    public function testDiff(string $one, string $two, array $expected)
+    public function testDiff(string $one, string $two, array $expected): void
     {
         $textEditBuilder = new TextEditBuilder();
         $chunks = $textEditBuilder->calculateTextEdits($one, $two);
@@ -21,33 +21,33 @@ class TextEditBuilderTest extends TestCase
     {
         yield 'no edits' => [
             <<<'EOT'
-original
-original
-original
-EOT
+                original
+                original
+                original
+                EOT
             ,
             <<<'EOT'
-original
-original
-original
-EOT
+                original
+                original
+                original
+                EOT
         ,
             [ ]
         ];
 
         yield 'addition at start of file' => [
             <<<'EOT'
-original
-original
-original
-EOT
+                original
+                original
+                original
+                EOT
             ,
             <<<'EOT'
-new
-original
-original
-original
-EOT
+                new
+                original
+                original
+                original
+                EOT
         ,
             [
                 [
@@ -60,16 +60,16 @@ EOT
 
         yield 'first line changed' => [
             <<<'EOT'
-original
-original
-original
-EOT
+                original
+                original
+                original
+                EOT
             ,
             <<<'EOT'
-neworiginal
-original
-original
-EOT
+                neworiginal
+                original
+                original
+                EOT
         ,
             [
                 [
@@ -87,16 +87,16 @@ EOT
 
         yield 'last line changed' => [
             <<<'EOT'
-original
-original
-middle
-EOT
+                original
+                original
+                middle
+                EOT
             ,
             <<<'EOT'
-original
-original
-original
-EOT
+                original
+                original
+                original
+                EOT
         ,
             [
                 [

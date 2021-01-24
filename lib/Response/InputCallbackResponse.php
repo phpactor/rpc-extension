@@ -64,7 +64,7 @@ class InputCallbackResponse implements Response
         return $this->callbackAction;
     }
 
-    private function add(Input $input)
+    private function add(Input $input): void
     {
         $this->inputs[] = $input;
     }

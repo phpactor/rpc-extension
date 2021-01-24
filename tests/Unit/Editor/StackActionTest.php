@@ -8,7 +8,7 @@ use Phpactor\Extension\Rpc\Response\CollectionResponse;
 
 class StackActionTest extends TestCase
 {
-    public function testCreate()
+    public function testCreate(): void
     {
         $action1 = $this->prophesize(Response::class);
         $action2 = $this->prophesize(Response::class);

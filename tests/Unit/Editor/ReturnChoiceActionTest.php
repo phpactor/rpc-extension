@@ -8,7 +8,7 @@ use Phpactor\Extension\Rpc\Response\ReturnChoiceResponse;
 
 class ReturnChoiceActionTest extends TestCase
 {
-    public function testCreate()
+    public function testCreate(): void
     {
         $option1 = ReturnOption::fromNameAndValue(
             'one',

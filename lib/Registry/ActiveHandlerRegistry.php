@@ -30,7 +30,7 @@ class ActiveHandlerRegistry implements HandlerRegistry
         return $this->handlers[$handlerName];
     }
 
-    private function register(Handler $handler)
+    private function register(Handler $handler): void
     {
         $this->handlers[$handler->name()] = $handler;
     }

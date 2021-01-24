@@ -26,7 +26,7 @@ class RpcCommandTest extends TestCase
     /**
      * It should execute a command from stdin
      */
-    public function testReadsFromStdin()
+    public function testReadsFromStdin(): void
     {
         $stdin = json_encode([
             'action' => 'echo',
@@ -48,7 +48,7 @@ class RpcCommandTest extends TestCase
         ], $response);
     }
 
-    public function testPrettyPrintsOutput()
+    public function testPrettyPrintsOutput(): void
     {
         $stdin = json_encode([
             'action' => 'echo',
@@ -61,7 +61,7 @@ class RpcCommandTest extends TestCase
         $this->assertEquals(0, $tester->getStatusCode());
     }
 
-    public function testReplaysLastRequest()
+    public function testReplaysLastRequest(): void
     {
         $randomString = md5(rand(0, 100000));
         $stdin = json_encode([

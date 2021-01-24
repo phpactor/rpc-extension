@@ -53,7 +53,7 @@ class CollectionResponse implements Response
         return $this->actions;
     }
 
-    private function add(Response $action)
+    private function add(Response $action): void
     {
         $this->actions[] = $action;
     }
