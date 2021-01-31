@@ -10,16 +10,16 @@
         }
     ],
     "require": {
-        "phpactor/console-extension": "~0.1",
-        "phpactor/container": "^1.1",
-        "phpactor/file-path-resolver-extension": "~0.1",
-        "phpactor/logging-extension": "~0.2",
-        "php": "^7.3"
+        "phpactor/console-extension": "^0.1.6",
+        "phpactor/container": "^1.3.4",
+        "phpactor/file-path-resolver-extension": "^0.3.4",
+        "phpactor/logging-extension": "^0.3.4",
+        "php": "^7.3 || ^8.0"
     },
     "require-dev": {
         "ergebnis/composer-normalize": "^2.0",
         "friendsofphp/php-cs-fixer": "^2.17",
-        "phpactor/test-utils": "^1.0",
+        "phpactor/test-utils": "^1.1.3",
         "phpstan/phpstan": "~0.12.0",
         "phpunit/phpunit": "^9.0",
         "phpspec/prophecy-phpunit": "^2.0"
