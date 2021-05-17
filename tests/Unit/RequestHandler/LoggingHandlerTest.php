@@ -12,9 +12,12 @@ use Phpactor\Extension\Rpc\Response\ErrorResponse;
 use Psr\Log\LoggerInterface;
 use Phpactor\Extension\Rpc\RequestHandler\LoggingHandler;
 use Psr\Log\LogLevel;
+use Prophecy\PhpUnit\ProphecyTrait;
 
 class LoggingHandlerTest extends TestCase
 {
+    use ProphecyTrait;
+
     /**
      * @var ObjectProphecy
      */

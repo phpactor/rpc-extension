@@ -5,9 +5,12 @@ namespace Phpactor\Extension\Rpc\Tests\Unit\Editor;
 use PHPUnit\Framework\TestCase;
 use Phpactor\Extension\Rpc\Response;
 use Phpactor\Extension\Rpc\Response\CollectionResponse;
+use Prophecy\PhpUnit\ProphecyTrait;
 
 class StackActionTest extends TestCase
 {
+    use ProphecyTrait;
+
     public function testCreate(): void
     {
         $action1 = $this->prophesize(Response::class);

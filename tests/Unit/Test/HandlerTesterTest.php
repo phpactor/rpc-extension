@@ -7,9 +7,12 @@ use Phpactor\Extension\Rpc\Handler\EchoHandler;
 use Phpactor\Extension\Rpc\Response\EchoResponse;
 use Phpactor\Extension\Rpc\Test\HandlerTester;
 use Prophecy\Prophecy\ObjectProphecy;
+use Prophecy\PhpUnit\ProphecyTrait;
 
 class HandlerTesterTest extends TestCase
 {
+    use ProphecyTrait;
+
     /**
      * @var ObjectProphecy
      */
