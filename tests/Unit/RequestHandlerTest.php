@@ -11,9 +11,12 @@ use Phpactor\Extension\Rpc\Response;
 use Phpactor\Extension\Rpc\Request;
 use Prophecy\Argument;
 use Prophecy\Prophecy\ObjectProphecy;
+use Prophecy\PhpUnit\ProphecyTrait;
 
 class RequestHandlerTest extends TestCase
 {
+    use ProphecyTrait;
+
     /**
      * @var ObjectProphecy
      */

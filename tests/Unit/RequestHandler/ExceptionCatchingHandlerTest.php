@@ -8,11 +8,14 @@ use Phpactor\Extension\Rpc\RequestHandler\ExceptionCatchingHandler;
 use Phpactor\Extension\Rpc\Request;
 use Phpactor\Extension\Rpc\Response;
 use Prophecy\Prophecy\ObjectProphecy;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Phpactor\Extension\Rpc\Response\ErrorResponse;
 use Exception;
 
 class ExceptionCatchingHandlerTest extends TestCase
 {
+    use ProphecyTrait;
+
     /**
      * @var ObjectProphecy
      */
